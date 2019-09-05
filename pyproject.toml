@@ -10,6 +10,10 @@ python = "^3.7"
 flask = "^1.1"
 flask_sqlalchemy = "^2.4"
 flask-migrate = "^2.5"
+flask-potion = "^0.16.0"
+psycopg2-binary = "^2.8"
+flask-dramatiq = "^0.4.1"
+redis = "^3.3"
 
 [tool.poetry.dev-dependencies]
 

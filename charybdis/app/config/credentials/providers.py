@@ -3,6 +3,7 @@ import os
 from abc import ABCMeta, abstractmethod, abstractproperty
 import typing
 
+
 class CredentialProvider(metaclass=ABCMeta):
     @abstractproperty
     def provider_code(self) -> str:
@@ -12,8 +13,9 @@ class CredentialProvider(metaclass=ABCMeta):
     def get_credential(self, identifier: str) -> typing.Any:
         pass
 
+
 class SystemProvider(CredentialProvider):
-    SYSTEM_PREFIX = "system"
+    SYSTEM_PREFIX = "CHARYBDIS"
 
     @property
     def provider_code(self) -> str:
@@ -21,10 +23,9 @@ class SystemProvider(CredentialProvider):
 
     def prefixize(self, varname: str) -> str:
         return f"{self.SYSTEM_PREFIX}_{varname.upper()}"
-    
+
     def get_credential(self, identifier: str) -> typing.Union[str, None]:
-        if identifier in os.environ:
-            return os.getenv(self.prefixize(identifier))
+        return os.getenv(self.prefixize(identifier))
 
 
 class CredentialProviderManager(object):

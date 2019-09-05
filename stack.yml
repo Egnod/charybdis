@@ -1,0 +1,29 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=charybdis_secrets
+      - POSTGRES_USER=charybdis
+      - POSTGRES_DB=charybdis
+    ports:
+      - 34006:5432
+
+  redis:
+    image: 'bitnami/redis:5.0'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - REDIS_PASSWORD=charybdis_secrets
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - 34007:6379
+    volumes:
+      - 'redis:/bitnami/redis/data'
+
+volumes:
+  redis:
+    driver: local

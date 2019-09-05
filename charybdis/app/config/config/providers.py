@@ -3,6 +3,7 @@ import os
 from abc import ABCMeta, abstractmethod, abstractproperty
 import typing
 
+
 class ConfigProvider(metaclass=ABCMeta):
     @abstractproperty
     def provider_code(self) -> str:
@@ -18,7 +19,7 @@ class ConfigProvider(metaclass=ABCMeta):
 
 
 class SystemProvider(ConfigProvider):
-    SYSTEM_PREFIX = "PROJECT_PREFIX"
+    SYSTEM_PREFIX = "CHARYBDIS"
 
     @property
     def provider_code(self) -> str:
