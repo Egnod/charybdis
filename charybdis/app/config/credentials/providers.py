@@ -1,7 +1,6 @@
 import os
-
-from abc import ABCMeta, abstractmethod, abstractproperty
 import typing
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 
 class CredentialProvider(metaclass=ABCMeta):
@@ -28,7 +27,7 @@ class SystemProvider(CredentialProvider):
         return os.getenv(self.prefixize(identifier))
 
 
-class CredentialProviderManager(object):
+class CredentialProviderManager:
     @staticmethod
     def get_by_code(code: str) -> typing.Union[CredentialProvider, None]:
         for provider in CredentialProvider.__subclasses__():
@@ -36,7 +35,7 @@ class CredentialProviderManager(object):
                 return provider()
 
 
-### Simple example with Vault by HashiCorp
+# Simple example with Vault by HashiCorp
 """
 from ..config import get_config
 import hvac
@@ -49,7 +48,7 @@ class VaultProvider(CredentialProvider):
     @property
     def provider_code(self) -> str:
         return "vault"
-    
+
     def get_credential(self, identifier: str) -> typing.Dict[str, typing.Any]:
         return self.client.read(identifier)["data"]
 """

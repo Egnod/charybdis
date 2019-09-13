@@ -1,16 +1,15 @@
 import logging
 import typing
-
 from abc import ABCMeta, abstractmethod
 
-from ..config import get_config
-
 from .base import logger
+
 
 class LoggingProvider(metaclass=ABCMeta):
     @abstractmethod
     def connect(self, logger: logging.Logger, *args, **kwargs) -> None:
         pass
+
 
 PROVIDERS: typing.List[LoggingProvider] = []
 
@@ -18,7 +17,7 @@ PROVIDERS: typing.List[LoggingProvider] = []
 for provider in PROVIDERS:
     provider.connect(logger)
 
-### EXAMPLE WITH fluentd
+# EXAMPLE WITH fluentd
 """
 from fluent import handler
 

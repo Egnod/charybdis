@@ -1,3 +1,2 @@
-from ..token.models import Token
 from ..project.models import Project
-from ..user.models import UserPermission, User, UserPermissionLinker
+from ..user.models import User, UserPermission, UserPermissionLinker

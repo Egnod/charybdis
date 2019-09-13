@@ -1,11 +1,11 @@
-from typing import Tuple, Type
-from flask_potion import Resource
+from typing import Tuple
 
-from  charybdis.app import api
+from charybdis.app import api
 
 from ..project.api import ProjectResource
+from ..user.api import UserResource
 
-resources: Tuple[Resource] = (ProjectResource,)
+RESOURCES: Tuple = (UserResource, ProjectResource)
 
-for resource in resources:
+for resource in RESOURCES:
     api.add_resource(resource)

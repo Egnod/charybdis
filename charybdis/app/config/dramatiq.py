@@ -1,7 +1,7 @@
 from .credentials import get_credential
 
 
-class DramatiqConfig(object):
+class DramatiqConfig:
     REDIS_HOST = get_credential("redis_host", "localhost")
     REDIS_PORT = get_credential("redis_port", "34007")
     REDIS_PASSWORD = get_credential("redis_password", "charybdis_secrets")

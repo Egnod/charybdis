@@ -1,7 +1,6 @@
 import os
-
-from abc import ABCMeta, abstractmethod, abstractproperty
 import typing
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 
 class ConfigProvider(metaclass=ABCMeta):
@@ -37,11 +36,11 @@ class SystemProvider(ConfigProvider):
         for var in os.environ:
             if self.SYSTEM_PREFIX in var:
                 var_list.append(var)
-            
+
         return var_list
 
-    
-class ConfigProviderManager(object):
+
+class ConfigProviderManager:
     @staticmethod
     def get_by_code(code: str) -> typing.Union[ConfigProvider, None]:
         for provider in ConfigProvider.__subclasses__():

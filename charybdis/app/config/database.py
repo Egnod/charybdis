@@ -1,10 +1,10 @@
 import os
 
-from .credentials import get_credential
 from .base import BaseConfig
+from .credentials import get_credential
 
 
-class DataBaseConfig(object):
+class DataBaseConfig:
     DB_USER = get_credential("db_user", "charybdis")
     DB_PORT = get_credential("db_port", "5432")
     DB_NAME = get_credential("db_user", "charybdis")
@@ -15,4 +15,3 @@ class DataBaseConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     MIGRATIONS_DIR = os.path.join(BaseConfig.APP_DIR, "migrations/")
-

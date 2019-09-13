@@ -1,5 +1,5 @@
-from flask_sqlalchemy import Model
 import sqlalchemy as sa
+from flask_sqlalchemy import Model
 from sqlalchemy.ext.declarative import declared_attr
 
 
@@ -7,7 +7,7 @@ class IdModel(Model):
     @declared_attr
     def id(cls):
         for base in cls.__mro__[1:-1]:
-            if getattr(base, '__table__', None) is not None:
+            if getattr(base, "__table__", None) is not None:
                 type = sa.ForeignKey(base.id)
                 break
         else:
