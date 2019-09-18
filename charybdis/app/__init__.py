@@ -16,7 +16,7 @@ jwt = JWT()
 
 from .models import *  # isort:skip
 from .resources import *  # isort:skip
-from .auth import identity, authenticate  # isort:skip
+from .auth import *  # isort:skip
 
 
 def create_app() -> Flask:

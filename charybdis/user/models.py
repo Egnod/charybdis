@@ -4,6 +4,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref
 
 from ..app import db
+from ..permission.models import Permission
 from ..project.models import Project
 
 
@@ -13,16 +14,6 @@ class UserRole(db.Model):
     @db.validates("slug")
     def validate_slug(self, key, value) -> str:
         assert slugify(value) == value, "Incorrect slug for user role!"
-
-        return value
-
-
-class UserPermission(db.Model):
-    slug = db.Column(db.String, nullable=False)
-
-    @db.validates("slug")
-    def validate_slug(self, key, value) -> str:
-        assert slugify(value) == value, "Incorrect slug for user permission!"
 
         return value
 
@@ -69,10 +60,10 @@ class User(db.Model):
 
 
 class UserPermissionLinker(db.Model):
-    permission_id = db.Column(db.Integer, db.ForeignKey(UserPermission.id), nullable=False)
+    permission_id = db.Column(db.Integer, db.ForeignKey(Permission.id), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
 
-    permission = db.relationship(UserPermission, uselist=False)
+    permission = db.relationship(Permission, uselist=False)
     user = db.relationship(User)
 
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id), nullable=False)
