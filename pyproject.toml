@@ -20,6 +20,7 @@ passlib = "^1.7"
 flask_jwt = "^0.3.2"
 flask-shell-ipython = "^0.4.1"
 python-slugify = "^3.0"
+sitri = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 bumpversion = "^0.5.3"

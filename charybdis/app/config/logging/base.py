@@ -1,11 +1,11 @@
 import logging
 
-from ..config import get_config
+from charybdis.app.config import conf
 
 
 class LoggingConfig:
-    LOGGING_FORMAT = get_config("logging_fomat", "%(asctime)-15s %(clientip)s %(user)-8s %(message)s")
-    LOGGING_LEVEL = get_config("logging_level", "info")
+    LOGGING_FORMAT = conf.get_config("logging_fomat", "%(asctime)-15s %(clientip)s %(user)-8s %(message)s")
+    LOGGING_LEVEL = conf.get_config("logging_level", "info")
 
 
 log_levels = {
