@@ -1,7 +1,7 @@
 import os
 
-from .base import BaseConfig
 from ..config import conf
+from .base import BaseConfig
 
 
 class DataBaseConfig:
