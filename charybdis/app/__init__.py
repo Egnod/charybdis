@@ -7,11 +7,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 from .config import Config
 from .mixin import IdModel
+from .api_alchemy_manager import SQLAlchemyManager
 
 db = SQLAlchemy(model_class=IdModel)
 migrate = Migrate(directory=Config.MIGRATIONS_DIR)
 dramatiq = Dramatiq()
-api = Api()
+api = Api(default_manager=SQLAlchemyManager)
 jwt = JWT()
 
 from .models import *  # isort:skip

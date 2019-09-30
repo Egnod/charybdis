@@ -2,6 +2,8 @@ from passlib.hash import pbkdf2_sha512
 from slugify import slugify
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref
+from uuid import uuid4
+from sqlalchemy.dialects.postgresql import UUID
 
 from ..app import db
 from ..permission.models import Permission
@@ -32,6 +34,8 @@ class User(db.Model):
 
     username = db.Column(db.String, unique=True)
     _password_hash = db.Column("password_hash", db.String)
+
+    uuid = db.Column(UUID(as_uuid=True), default=uuid4, nullable=False)
 
     @db.validates("username")
     def validate_username(self, key: str, value: str) -> str:
