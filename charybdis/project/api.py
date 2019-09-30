@@ -53,3 +53,8 @@ class ProjectResource(ModelResource):
         db.session.commit()
 
         return True
+
+    @ItemRoute.GET("/uuid", rel="uuid")
+    @role_required(["admin"])
+    def uuid(self, project) -> fields.UUID():
+        return project.uuid
