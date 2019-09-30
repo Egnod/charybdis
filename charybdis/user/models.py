@@ -8,6 +8,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from ..app import db
 from ..permission.models import Permission
 from ..project.models import Project
+from ..domain.models import Domain
 
 
 class UserRole(db.Model):
@@ -36,6 +37,9 @@ class User(db.Model):
     _password_hash = db.Column("password_hash", db.String)
 
     uuid = db.Column(UUID(as_uuid=True), default=uuid4, nullable=False)
+
+    domain_id = db.Column(db.Integer, db.ForeignKey(Domain.id), nullable=False)
+    domain = db.relationship(Domain)
 
     @db.validates("username")
     def validate_username(self, key: str, value: str) -> str:
