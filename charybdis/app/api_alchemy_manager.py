@@ -60,7 +60,7 @@ class SQLAlchemyManager(RelationalManager):
 
         fs = resource.schema
 
-        fs.set("id", self.id_field)
+        fs.set("$id", self.id_field)
         fs.set("$uri", fields.ItemUri(resource, attribute=self.id_attribute))
 
         fs.set("$type", fields.ItemType(resource))
