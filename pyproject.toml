@@ -24,6 +24,7 @@ sitri = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 bumpversion = "^0.5.3"
+gunicorn = "^19.9"
 
 [tool.black]
 line-length = 120
