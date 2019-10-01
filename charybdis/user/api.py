@@ -10,6 +10,8 @@ from .models import Permission, User, UserPermissionLinker
 class UserResource(ModelResource):
     class Meta:
         model = User
+        exclude_fields = ["_password_hash"]
+        read_only_fields = ["uuid"]
 
     @Route.GET("/profile/permissions")
     @auth_required
@@ -78,3 +80,11 @@ class UserResource(ModelResource):
         item = self.manager.read(id)
         updated_item = self.manager.update(item, properties)
         return updated_item
+
+    @ItemRoute.PATCH("/changePassword", rel="change_password")
+    @role_required(["admin"])
+    def change_password(self, user, new_password: fields.String()) -> fields.Boolean():
+        user.password_hash = new_password
+        db.session.commit()
+
+        return True

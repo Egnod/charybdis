@@ -1,5 +1,5 @@
 from sitri import Sitri
-from sitri.defaults import SystemConfigProvider, SystemCredentialProvider
+from sitri.contrib.system import SystemConfigProvider, SystemCredentialProvider
 
 conf = Sitri(
     config_provider=SystemConfigProvider(project_prefix="charybdis"),

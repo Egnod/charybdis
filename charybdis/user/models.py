@@ -1,14 +1,15 @@
+from uuid import uuid4
+
 from passlib.hash import pbkdf2_sha512
 from slugify import slugify
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref
-from uuid import uuid4
-from sqlalchemy.dialects.postgresql import UUID
 
 from ..app import db
+from ..domain.models import Domain
 from ..permission.models import Permission
 from ..project.models import Project
-from ..domain.models import Domain
 
 
 class UserRole(db.Model):

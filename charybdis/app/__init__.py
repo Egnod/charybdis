@@ -5,9 +5,9 @@ from flask_migrate import Migrate
 from flask_potion import Api
 from flask_sqlalchemy import SQLAlchemy
 
+from .api_alchemy_manager import SQLAlchemyManager
 from .config import Config
 from .mixin import IdModel
-from .api_alchemy_manager import SQLAlchemyManager
 
 db = SQLAlchemy(model_class=IdModel)
 migrate = Migrate(directory=Config.MIGRATIONS_DIR)
@@ -29,5 +29,9 @@ def create_app() -> Flask:
     dramatiq.init_app(app)
     api.init_app(app)
     jwt.init_app(app)
+
+    with app.app_context():
+        db.create_all()
+        db.session.commit()
 
     return app
