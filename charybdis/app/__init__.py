@@ -18,6 +18,7 @@ jwt = JWT()
 from .models import *  # isort:skip
 from .resources import *  # isort:skip
 from .auth import *  # isort:skip
+from ..util import first_start, is_first_start  # isort:skip
 
 
 def create_app() -> Flask:
@@ -30,8 +31,8 @@ def create_app() -> Flask:
     api.init_app(app)
     jwt.init_app(app)
 
-    with app.app_context():
-        db.create_all()
-        db.session.commit()
+    if is_first_start():
+        with app.app_context():
+            first_start(db)
 
     return app
