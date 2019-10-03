@@ -9,13 +9,13 @@ services:
       - CHARYBDIS_DB_USER=charybdis
       - CHARYBDIS_DB_NAME=charybdis
       - CHARYBDIS_DB_PORT=
-      - CHARYBDIS_DB_HOST=db
+      - CHARYBDIS_DB_HOST=db_main
     ports:
       - 34004:8000
     depends_on:
-      - db
+      - db_main
 
-  db:
+  db_main:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=charybdis_secrets
