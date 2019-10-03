@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "charybdis"
+name = "charybdis_server"
 version = "0.2.0"
 description = ""
 authors = ["Alexander Lavrov <lavrov@selectel.ru>"]
