@@ -32,10 +32,19 @@ class UserResource(ModelResource):
     def resolve_profile(self) -> fields.Inline("self"):
         return self.manager.read(current_identity.id)
 
-    @ItemRoute.DELETE("/deactivate", rel="destroy")
+    @ItemRoute.PATCH("/deactivate", rel="deactivate")
     @role_required(["admin"])
     def deactivate(self, user) -> fields.Boolean():
         user.is_active = False
+
+        db.session.commit()
+
+        return True
+
+    @ItemRoute.PATCH("/activate", rel="activate")
+    @role_required(["admin"])
+    def deactivate(self, user) -> fields.Boolean():
+        user.is_active = True
 
         db.session.commit()
 
@@ -120,7 +129,7 @@ class UserRoleResource(ModelResource):
         updated_item = self.manager.update(item, properties)
         return updated_item
 
-    @ItemRoute.DELETE("/deactivate", rel="destroy")
+    @ItemRoute.DELETE("/deactivate", rel="deactivate")
     @role_required(["admin"])
     def deactivate(self, user_role) -> fields.Boolean():
         return False

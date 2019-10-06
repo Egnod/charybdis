@@ -13,7 +13,7 @@ class DomainResource(ModelResource):
         model = Domain
         read_only_fields = (Domain.uuid.name,)
 
-    @ItemRoute.PATCH("/deactivate", rel="destroy")
+    @ItemRoute.PATCH("/deactivate", rel="deactivate")
     @role_required(["admin"])
     def deactivate(self, domain) -> fields.Boolean():
         domain.is_active = False
@@ -22,7 +22,7 @@ class DomainResource(ModelResource):
 
         return True
 
-    @ItemRoute.PATCH("/activate")
+    @ItemRoute.PATCH("/activate", rel="activate")
     @role_required(["admin"])
     def activate(self, domain) -> fields.Boolean():
         domain.is_active = True
