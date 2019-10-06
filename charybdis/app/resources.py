@@ -5,9 +5,9 @@ from charybdis.app import api
 from ..domain.api import DomainResource
 from ..permission.api import PermissionResource
 from ..project.api import ProjectResource
-from ..user.api import UserResource
+from ..user.api import UserResource, UserRoleResource
 
-RESOURCES: Tuple = (UserResource, ProjectResource, DomainResource, PermissionResource)
+RESOURCES: Tuple = (UserResource, ProjectResource, DomainResource, PermissionResource, UserRoleResource)
 
 for resource in RESOURCES:
     api.add_resource(resource)
