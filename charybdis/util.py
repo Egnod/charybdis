@@ -18,10 +18,10 @@ def first_start(db: SQLAlchemy) -> None:
 
                         INSERT INTO public.user_role (created_at, updated_at, slug, id)
                             VALUES ('2019-10-01 10:18:33.406989', null, 'admin', 1);
-                        
+
                         INSERT INTO public.user_role (created_at, updated_at, slug, id)
                             VALUES ('2019-10-01 10:18:33.406989', null, 'reader', 2);
-                        
+
                         INSERT INTO public.user_role (created_at, updated_at, slug, id)
                             VALUES ('2019-10-01 10:18:33.406989', null, 'moderator', 3);
 

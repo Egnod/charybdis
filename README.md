@@ -90,12 +90,12 @@ Start Charybdis with gunicorn or native flask server.
 On ***first start*** charybdis create defaults - user, domain and base **admin** role.
 
 Domain:
-    
+
     Name/Slug: Global/global
     UUID: 00000000-0000-0000-0000-000000000000
 
 User:
-    
+
     UserName: basic
     Password Hash/Password: $pbkdf2-sha512$25000$D.G8t/beGwOgdM4ZY8y5Vw$WsKIhGgwUyhEOp5LAaU/MQFTIQeD3Hzil5Lzuys95iKwhLOYdFw8WPt.BAASS9bTIPRIzebfMe3pRieDzbFCnQ / 123
     UUID: 00000000-0000-0000-0000-000000000000
