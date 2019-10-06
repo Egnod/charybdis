@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "charybdis_server"
-version = "0.2.0"
+version = "0.2.1"
 description = ""
 authors = ["Alexander Lavrov <lavrov@selectel.ru>"]
 license = "ISC"
