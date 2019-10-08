@@ -43,7 +43,7 @@ class UserResource(ModelResource):
 
     @ItemRoute.PATCH("/activate", rel="activate")
     @role_required(["admin"])
-    def deactivate(self, user) -> fields.Boolean():
+    def activate(self, user) -> fields.Boolean():
         user.is_active = True
 
         db.session.commit()
