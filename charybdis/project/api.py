@@ -36,7 +36,7 @@ class ProjectResource(ModelResource):
         updated_item = self.manager.update(item, properties)
         return updated_item
 
-    @ItemRoute.PATCH("/deactivate", rel="destroy")
+    @ItemRoute.PATCH("/deactivate", rel="deactivate")
     @role_required(["admin"])
     def deactivate(self, project) -> fields.Boolean():
         project.is_active = False
