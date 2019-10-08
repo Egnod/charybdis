@@ -11,7 +11,7 @@ class DomainResource(ModelResource):
 
     class Meta:
         model = Domain
-        read_only_fields = (Domain.uuid.name,)
+        read_only_fields = (Domain.uuid.key,)
 
     @ItemRoute.PATCH("/deactivate", rel="deactivate")
     @role_required(["admin"])

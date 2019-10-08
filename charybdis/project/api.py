@@ -9,6 +9,7 @@ from .models import Project
 class ProjectResource(ModelResource):
     class Meta:
         model = Project
+        read_only_fields = (Project._uuid.key, )
 
     @Route.POST("", rel="create", schema=fields.Inline("self"), response_schema=fields.Inline("self"))
     @role_required(["admin"])
