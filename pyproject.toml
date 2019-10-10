@@ -16,7 +16,7 @@ flask-dramatiq = "^0.4.1"
 redis = "^3.3"
 pip = "^19.2"
 passlib = "^1.7"
-flask_jwt = "^0.3.3"
+flask_jwt = "^0.3.2"
 python-slugify = "^3.0"
 sitri="^0.4.0"
 
