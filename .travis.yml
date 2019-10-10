@@ -23,6 +23,11 @@ matrix:
         provider: script
         script: docker push egnod/charybdis:latest
 
+env:
+  - SCYLLA_CHARYBDIS_ENDPOINT=http://localhost:34004
+  - SCYLLA_CHARYBDIS_USERNAME=basic
+  - SCYLLA_CHARYBDIS_PASSWORD=123
+
 install:
   - pip3 install poetry codecov
   - poetry install
