@@ -17,7 +17,7 @@ matrix:
       dist: bionic
       name: "PYTHON3.7_LINUX"
       before_deploy:
-        - docker login -u $DOCKER_HUB_LOGIN -p $DOCKER_HUB_TOKEN
+        - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_TOKEN
 
       deploy:
         provider: script
