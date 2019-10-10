@@ -1,5 +1,13 @@
-# Charybdis
-##  Permissions manager for your projects
+<p align="center">
+  <h1 align="center">Charybdis</h1>
+  </p>
+ 
+ ![Travis (.org)](https://img.shields.io/travis/lemegetonx/charybdis)
+ ![GitHub](https://img.shields.io/github/license/lemegetonx/charybdis)
+ ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/lemegetonx/charybdis)
+[![Join the chat at https://gitter.im/lemegetonx/charybdis](https://badges.gitter.im/lemegetonx/charybdis.svg)](https://gitter.im/lemegetonx/charybdis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+##  User manager for your projects
 Charybdis is permissions and auth manager
 
 # Expand
