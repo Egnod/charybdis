@@ -1,4 +1,7 @@
 # Charybdis
+
+[![Join the chat at https://gitter.im/lemegetonx/charybdis](https://badges.gitter.im/lemegetonx/charybdis.svg)](https://gitter.im/lemegetonx/charybdis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ##  Permissions manager for your projects
 Charybdis is permissions and auth manager
 
