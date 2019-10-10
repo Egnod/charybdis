@@ -2,8 +2,8 @@ from sitri import Sitri
 from sitri.contrib.system import SystemConfigProvider, SystemCredentialProvider
 
 conf = Sitri(
-    config_provider=SystemConfigProvider(project_prefix="charybdis"),
-    credential_provider=SystemCredentialProvider(project_prefix="charybdis"),
+    config_provider=SystemConfigProvider(prefix="charybdis"),
+    credential_provider=SystemCredentialProvider(prefix="charybdis"),
 )
 
 

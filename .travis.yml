@@ -1,0 +1,38 @@
+language: python
+
+sudo: false
+
+matrix:
+
+  include:
+
+    - os: osx
+      language: generic
+      osx_image: xcode11
+      name: "PYTHON3.7_OSX"
+
+    - os: linux
+      sudo: required
+      python: 3.7
+      dist: bionic
+      name: "PYTHON3.7_LINUX"
+      before_deploy:
+        - docker login -u $DOCKER_HUB_LOGIN -p $DOCKER_HUB_TOKEN
+
+      deploy:
+        provider: script
+        script: docker push egnod/charybdis:latest
+
+install:
+  - pip3 install poetry codecov
+  - poetry install
+
+before_script:
+  - docker build -t charybdis .
+  - docker tag charybdis:latest charybdis:staging
+  - docker-compose -f test.stack.yml up -d
+
+script:
+  - poetry run pre-commit run -a
+  - poetry run pytest
+  - codecov
