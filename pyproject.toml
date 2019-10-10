@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "charybdis_server"
-version = "0.2.2"
+version = "0.3.3"
 description = ""
 authors = ["Alexander Lavrov <lavrov@selectel.ru>"]
 license = "ISC"
@@ -18,13 +18,16 @@ pip = "^19.2"
 passlib = "^1.7"
 flask_jwt = "^0.3.2"
 python-slugify = "^3.0"
-sitri="^0.1.3"
+sitri="^0.4.0"
 
 [tool.poetry.dev-dependencies]
 bumpversion = "^0.5.3"
 gunicorn = "^19.9"
 flask-shell-ipython = "^0.4.1"
 pre-commit = "^1.18"
+pytest-cov = "^2.8"
+turmalin = "^2.5"
+scylla-client = "^0.2.1"
 
 
 [tool.black]

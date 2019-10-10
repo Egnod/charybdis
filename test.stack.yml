@@ -1,0 +1,40 @@
+version: '3.1'
+
+services:
+  charybdis:
+    image: charybdis:staging
+    restart: always
+    environment:
+      - CHARYBDIS_DB_PASSWORD=charybdis_secrets
+      - CHARYBDIS_DB_USER=charybdis
+      - CHARYBDIS_DB_NAME=charybdis
+      - CHARYBDIS_DB_PORT=
+      - CHARYBDIS_DB_HOST=db_main
+    ports:
+      - 34004:8000
+    depends_on:
+      - db_main
+
+  db_main:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=charybdis_secrets
+      - POSTGRES_USER=charybdis
+      - POSTGRES_DB=charybdis
+    ports:
+      - 34006:5432
+
+  redis:
+    image: 'bitnami/redis:5.0'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - REDIS_PASSWORD=charybdis_secrets
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - 34007:6379
+    volumes:
+      - 'redis:/bitnami/redis/data'
+
+volumes:
+  redis:
+    driver: local
